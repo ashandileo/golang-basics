@@ -1,38 +1,27 @@
 package main
 
-// the package allows you to format basic strings, values, or anything and print them
 import "fmt"
 
-// you can initialize variable outside main func
-var someName = "Ashandy"
-
-// but you can't create variable outside main func using this short hand, this will get an error
-// anotherSomeName := "Leonadi"
-
 func main() {
+	// Numbers
 
-	// strings
-	// use double quote when store string variable in go
-	var nameOne string = "ashanday"
+	// use int to declared integer
+	var ageOne int = 20
+	var ageTwo = 30
+	ageThree := 40 // you can also use this shorthand to create int variable
 
-	// golang will automatically set the type of variable to string, if we dont declared the type
-	var nameTwo = "lutpi"
+	fmt.Println(ageOne, ageTwo, ageThree)
 
-	// initial variable with no value
-	var nameThree string
+	// bits and memory -> full documentation https://pkg.go.dev/builtin#int
+	var numOne int8 = 25 // means 8 bits with Range: -128 through 127.
+	var numTwo int8 = -128
+	var numThree uint8 = 23 // we can't have a negative number
 
-	fmt.Println(nameOne, nameTwo, nameThree)
+	fmt.Println(numOne, numTwo, numThree)
 
-	// you can replace the variable value using this way
-	nameOne = "anjay"
-	nameThree = "coba ah ganti nama bisa gak"
+	// float -> decimal number
+	var scoreOne float32 = 25.98
+	scoreTwo := 291292.21 // if we dong specify the type of float number, the type will be float64 as default
 
-	fmt.Println(nameOne, nameTwo, nameThree)
-
-	// another way to initialize variable without var keyword by using colon (:)
-	nameFour := "mantap"
-
-	fmt.Println(nameFour)
-
-	fmt.Println("variable dari luar coba panggil bisa gak", someName)
+	fmt.Println(scoreOne, scoreTwo)
 }
