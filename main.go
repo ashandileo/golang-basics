@@ -1,33 +1,31 @@
 package main
 
-import (
-	"fmt"
-	"sort"
-	"strings"
-)
+import "fmt"
 
 func main() {
-	greeting := "hello there friends!"
+	x := 0
 
-	fmt.Println(strings.Contains(greeting, "hello"))         // will return true, like includes method in javascript, cool!
-	fmt.Println(strings.ReplaceAll(greeting, "hello", "hi")) // will replace the second argument with the third argument
-	fmt.Println(strings.ToUpper(greeting))
-	fmt.Println(strings.Index(greeting, "ll")) // find the index position of ll
-	fmt.Println(strings.Split(greeting, " "))
+	for x < 5 {
+		fmt.Println("value of x is: ", x)
+		x++
+	}
 
-	// the original value is unchanged
-	fmt.Println("the original value is: ", greeting)
+	for i := 0; i < 5; i++ {
+		fmt.Println("value of i is: ", i)
+	}
 
-	ages := []int{45, 20, 35, 30, 75, 60, 50, 25}
-	sort.Ints(ages) // sort integer and the original value will changed
-	fmt.Println(ages)
+	names := []string{"ashandi", "adam", "dani", "raka"}
+	for i := 0; i < len(names); i++ {
+		fmt.Println(names[i])
+	}
 
-	index := sort.SearchInts(ages, 30) // return position of 30 inside the ages
-	fmt.Println(index)
+	for index, value := range names {
+		fmt.Printf("the value at index %v is %v \n", index, value)
+	}
 
-	names := []string{"yoshi", "mario", "lalala"}
-	sort.Strings(names) // will sort and changed the original value
+	for _, value := range names {
+		fmt.Printf("the value is %v \n", value)
+	}
+
 	fmt.Println(names)
-
-	fmt.Println(sort.SearchStrings(names, "mario")) // will find the position of mario
 }
