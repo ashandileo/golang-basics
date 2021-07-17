@@ -3,25 +3,31 @@ package main
 import "fmt"
 
 func main() {
-	// Numbers
 
-	// use int to declared integer
-	var ageOne int = 20
-	var ageTwo = 30
-	ageThree := 40 // you can also use this shorthand to create int variable
+	age := 19
+	name := "Ashandi"
 
-	fmt.Println(ageOne, ageTwo, ageThree)
+	// Print
+	// doesn't add a new line, if you want to add a new line use the (\n)
+	fmt.Print("Hello \n")
+	fmt.Print("World \n")
 
-	// bits and memory -> full documentation https://pkg.go.dev/builtin#int
-	var numOne int8 = 25 // means 8 bits with Range: -128 through 127.
-	var numTwo int8 = -128
-	var numThree uint8 = 23 // we can't have a negative number
+	// Println
+	// will add a new line automatically at the end
+	fmt.Println("Hello")
+	fmt.Println("new line")
 
-	fmt.Println(numOne, numTwo, numThree)
+	fmt.Println("my age is", age, "and my name is", name)
 
-	// float -> decimal number
-	var scoreOne float32 = 25.98
-	scoreTwo := 291292.21 // if we dong specify the type of float number, the type will be float64 as default
+	// Printf (Formatted string) -> way to create a string with variables embedded inside it
+	// %_ = format specifier
+	fmt.Printf("my age is %v and my name is %v \n", age, name) // %v default
+	fmt.Printf("my age is %q and my name is %q \n", age, name) // %q will add double qoute for string var
+	fmt.Printf("age is of type %T \n", age)                    // get the types of variable
+	fmt.Printf("your scored %f points! \n", 225.25)            // float
+	fmt.Printf("your scored %0.2f points! \n", 225.25555)      // float with 2 decimal
 
-	fmt.Println(scoreOne, scoreTwo)
+	// Sprintf (save formated string)
+	var str = fmt.Sprintf("my age is %v and my name is %v \n", age, name)
+	fmt.Println("the save string is: ", str)
 }
