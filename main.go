@@ -1,31 +1,38 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
+
+func sayGreeting(name string) {
+	fmt.Printf("Good morning %v \n", name)
+}
+
+func sayBye(name string) {
+	fmt.Printf("Goodbye %v \n", name)
+}
+
+func cycleNames(names []string, callback func(string)) {
+	for _, value := range names {
+		callback(value)
+	}
+}
+
+func circleArea(radius float64) float64 {
+	return math.Pi * radius * radius
+}
 
 func main() {
-	age := 25
+	sayGreeting("Ashandi")
+	sayGreeting("Lutpi")
+	sayBye("Ashandi")
 
-	if age < 30 {
-		fmt.Println("age is later than 30")
-	} else if age < 40 {
-		fmt.Println("age is less than 40")
-	} else {
-		fmt.Println("age is not less than 45")
-	}
+	cycleNames([]string{"caca", "cici", "cucu"}, sayGreeting)
+	cycleNames([]string{"caca", "cici", "cucu"}, sayBye)
 
-	names := []string{"ashandi", "adam", "dani", "afalah", "rochim", "alip", "iqbale"}
-
-	for index, value := range names {
-		if index == 1 {
-			fmt.Println("continuing at pos", index)
-			continue // continue to the loop
-		}
-
-		if index > 2 {
-			fmt.Println("breaking at post", index)
-			break // break the loop and dont continue the loop
-		}
-
-		fmt.Printf("the value at pos %v is %v \n", index, value)
-	}
+	area1 := circleArea(10.5)
+	area2 := circleArea(15)
+	fmt.Println(area1, area2)
+	fmt.Printf("circle 1 is %0.3f and circle 2 is %0.3f", area1, area2)
 }
