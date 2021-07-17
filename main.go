@@ -2,37 +2,32 @@ package main
 
 import (
 	"fmt"
-	"math"
+	"strings"
 )
 
-func sayGreeting(name string) {
-	fmt.Printf("Good morning %v \n", name)
-}
+func getInitials(name string) (string, string) {
+	uppercaseName := strings.ToUpper(name)
+	names := strings.Split(uppercaseName, " ")
 
-func sayBye(name string) {
-	fmt.Printf("Goodbye %v \n", name)
-}
-
-func cycleNames(names []string, callback func(string)) {
+	var initials []string
 	for _, value := range names {
-		callback(value)
+		initials = append(initials, value[:1]) //get the first letter [:1]
 	}
-}
 
-func circleArea(radius float64) float64 {
-	return math.Pi * radius * radius
+	if len(initials) > 1 {
+		return initials[0], initials[1]
+	}
+
+	return initials[0], "_"
 }
 
 func main() {
-	sayGreeting("Ashandi")
-	sayGreeting("Lutpi")
-	sayBye("Ashandi")
+	firstName1, secondName1 := getInitials("ashandi leo")
+	fmt.Println(firstName1, secondName1)
 
-	cycleNames([]string{"caca", "cici", "cucu"}, sayGreeting)
-	cycleNames([]string{"caca", "cici", "cucu"}, sayBye)
+	firstName2, secondName2 := getInitials("test jared")
+	fmt.Println(firstName2, secondName2)
 
-	area1 := circleArea(10.5)
-	area2 := circleArea(15)
-	fmt.Println(area1, area2)
-	fmt.Printf("circle 1 is %0.3f and circle 2 is %0.3f", area1, area2)
+	firstName3, secondName3 := getInitials("richard")
+	fmt.Println(firstName3, secondName3)
 }
