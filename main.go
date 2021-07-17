@@ -1,27 +1,33 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+	"strings"
+)
 
 func main() {
-	// Array
-	var ages [3]int = [3]int{20, 25, 30} // array with integer type and 3 length
-	var agesTwo = [3]int{20, 25, 30}     // same with above
-	fmt.Println(ages, agesTwo)
-	fmt.Println("array length is: ", len(ages)) // two print array length
+	greeting := "hello there friends!"
 
-	// shorthand to create an array
-	names := [4]string{"ashandi", "lutpi", "eman", "palah"}
-	names[1] = "adam"
-	fmt.Println(names, len(names))
+	fmt.Println(strings.Contains(greeting, "hello"))         // will return true, like includes method in javascript, cool!
+	fmt.Println(strings.ReplaceAll(greeting, "hello", "hi")) // will replace the second argument with the third argument
+	fmt.Println(strings.ToUpper(greeting))
+	fmt.Println(strings.Index(greeting, "ll")) // find the index position of ll
+	fmt.Println(strings.Split(greeting, " "))
 
-	// Slices (use arrays under the hood)
-	// slice can append
-	var scores = []int{100, 50, 30}
-	scores[2] = 25
-	scores = append(scores, 85)
-	fmt.Println("Slice: ", scores)
+	// the original value is unchanged
+	fmt.Println("the original value is: ", greeting)
 
-	// Slice ranges -> way to get a range of elements
-	rangeOne := names[1:]
-	fmt.Println(rangeOne)
+	ages := []int{45, 20, 35, 30, 75, 60, 50, 25}
+	sort.Ints(ages) // sort integer and the original value will changed
+	fmt.Println(ages)
+
+	index := sort.SearchInts(ages, 30) // return position of 30 inside the ages
+	fmt.Println(index)
+
+	names := []string{"yoshi", "mario", "lalala"}
+	sort.Strings(names) // will sort and changed the original value
+	fmt.Println(names)
+
+	fmt.Println(sort.SearchStrings(names, "mario")) // will find the position of mario
 }
