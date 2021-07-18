@@ -2,19 +2,19 @@ package main
 
 import "fmt"
 
-func updateMenu(menu map[string]float64) {
-	menu["coffe"] = 2.99
+func updateName(name *string) {
+	*name = "leonadi"
 }
 
 func main() {
+	// To update original value in group A
+	// you can pass the pointers as argument
 
-	// Group B => slices, maps, functions
-	// will change the original value
-	menu := map[string]float64{
-		"pie":       5.95,
-		"ice cream": 3.99,
-	}
+	name := "ashandi"
 
-	updateMenu(menu)
-	fmt.Println(menu) // we will see coffe as the new value
+	fmt.Println(name) //ashandi
+
+	updateName(&name)
+
+	fmt.Println(name) //leonadi
 }
