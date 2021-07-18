@@ -5,5 +5,5 @@ import "fmt"
 func main() {
 	myBill := newBill("ashandi's bill")
 
-	fmt.Println(myBill)
+	fmt.Println(myBill.format())
 }
