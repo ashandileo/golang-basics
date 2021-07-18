@@ -1,0 +1,4 @@
+Bill breakdown 
+asdasd:                   ...$123 
+tip:                      ...$300.00 
+total:                    ...$423.00 
